@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2024 at 07:34 PM
+-- Generation Time: Aug 13, 2024 at 04:29 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -80,6 +80,27 @@ CREATE TABLE `product_seq` (
 INSERT INTO `product_seq` (`next_val`) VALUES
 (151);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  `enabled` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`, `role`, `enabled`) VALUES
+(1, 'farhad', '$2a$10$SgFjK5jxKH1m8d64gbEGBulxR446ocgEMib49RcnD7vKMMV.f77RC', 'user', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -97,6 +118,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -111,6 +138,12 @@ ALTER TABLE `employee`
 --
 ALTER TABLE `product`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
